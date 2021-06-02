@@ -1,0 +1,71 @@
+﻿@using MyEpiserverSite
+@model PageViewModel<MyEpiserverSite.Models.Pages.AtbPage>
+
+@{ Layout = "~/Views/Shared/Layouts/_Root.cshtml"; }
+
+
+<h1 @Html.EditAttributes(x => x.CurrentPage.PageName)>@Model.CurrentPage.PageName</h1>
+<p class="introduction" @Html.EditAttributes(x => x.CurrentPage.MetaDescription)>@Model.CurrentPage.MetaDescription</p>
+@Html.DisplayFor(x => x.CurrentPage.PageImage)
+<div class="row">
+    <div class="span8 clearfix" @Html.EditAttributes(x => x.CurrentPage.MainBody)>
+        @Html.DisplayFor(x => x.CurrentPage.MainBody)
+    </div>
+</div>
+<div class="row">
+    @Html.PropertyFor(x => x.CurrentPage.MainData)
+</div>
+<div class="row">
+    @Html.PropertyFor(x => x.CurrentPage.Heading)
+</div>
+
+<div class="row">
+    @Html.PropertyFor(x => x.CurrentPage.Image)
+</div>
+
+ <div class="row">
+    <table style="border:2px solid; width:100%;align-content:center;">
+        <tr>
+            <td><b>Label</b></td>
+            <td><b>Value</b></td>
+        </tr>
+        @if (Model != null)
+            {
+                foreach (var item in Model.CurrentPage.Locations)
+                {
+                <tr>
+                    <td>@Html.PropertyFor(modelItem => item.Label)</td>
+                    <td>@Html.PropertyFor(modelItem => item.Value)</td>
+
+                </tr>
+
+            }
+        }
+   </table>
+
+</div>
+
+<div class="row">
+    <table style="border:2px solid; width:100%;">
+       
+        @if (Model != null)
+            {
+            <tr>
+                <td><b>Label</b></td>
+                <td><b>Value</b></td>
+                <td><b>Image</b></td>
+            </tr>
+            foreach (var item in Model.CurrentPage.ListImage)
+            {
+                <tr>
+                    <td>@Html.PropertyFor(modelItem => item.Label)</td>
+                    <td>@Html.PropertyFor(modelItem => item.Value)</td>
+                    <td style="width:100px;height:100px;">@Html.PropertyFor(modelItem => item.Image, new { CustomTag = "span" })</td>
+
+                </tr>
+
+            }
+        }
+    </table>
+
+</div>
