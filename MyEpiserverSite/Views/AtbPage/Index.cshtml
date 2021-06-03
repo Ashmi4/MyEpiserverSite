@@ -3,72 +3,82 @@
 
 @{ Layout = "~/Views/Shared/Layouts/_Root.cshtml"; }
 
-
+<!--PageName- Title-->
 <h1 @Html.EditAttributes(x => x.CurrentPage.PageName)>@Model.CurrentPage.PageName</h1>
+
+<!--PageName- Description-->
 <p class="introduction" @Html.EditAttributes(x => x.CurrentPage.MetaDescription)>@Model.CurrentPage.MetaDescription</p>
-@Html.DisplayFor(x => x.CurrentPage.PageImage)
+
+<!--PageImage- Image- Teaser Image-->
+<div class="row">
+    @Html.DisplayFor(x => x.CurrentPage.PageImage)
+</div>
+
+<!--MainBody Section-->
 <div class="row">
     <div @Html.EditAttributes(x => x.CurrentPage.MainBody)>
         @Html.DisplayFor(x => x.CurrentPage.MainBody)
     </div>
 </div>
+
+<!--MainData Section-->
 <div class="row">
     @Html.PropertyFor(x => x.CurrentPage.MainData)
 </div>
+
+<!--Image Heading Section-->
 <div class="row">
     @Html.PropertyFor(x => x.CurrentPage.Heading)
 </div>
 
+<!--Image Section-->
 <div class="row">
     @Html.PropertyFor(x => x.CurrentPage.Image)
 </div>
 
- <div class="row">
-    <table style="border:2px solid; width:100%;align-content:center;" @Html.EditAttributes(x => x.CurrentPage.Locations)>
-        
-        @if (Model.CurrentPage.Locations != null)
-            {
-            <tr>
-                <td><b>Label</b></td>
-                <td><b>Value</b></td>
-            </tr>
-            foreach (var item in Model.CurrentPage.Locations)
-            {
-                <tr>
-                    <td>@Html.PropertyFor(modelItem => item.Label)</td>
-                    <td>@Html.PropertyFor(modelItem => item.Value)</td>
+<!--Display Section for Two Column List-->
+<div class="row">
+<table style="border:2px solid; width:100%;align-content:center;" @Html.EditAttributes(x => x.CurrentPage.Locations)>
 
-                </tr>
+@if (Model.CurrentPage.Locations != null)
+{
+        <tr>
+            <td><b>Label</b></td>
+            <td><b>Value</b></td>
+        </tr>
+    foreach (var item in Model.CurrentPage.Locations)
+    {
+        <tr>
+            <td>@Html.PropertyFor(modelItem => item.Label)</td>
+            <td>@Html.PropertyFor(modelItem => item.Value)</td>
+        </tr>
 
-            }
-        }
-    
-    
-   </table>
+    }
+}
 
+</table>
 </div>
 
+<!--Display Section for Three Column List with Image-->
 <div class="row">
-    <table style="border:2px solid; width:100%;" @Html.EditAttributes(x => x.CurrentPage.ListImage)>
-       
-        @if (Model.CurrentPage.ListImage != null)
-            {
-            <tr>
-                <td><b>Label</b></td>
-                <td><b>Value</b></td>
-                <td><b>Image</b></td>
-            </tr>
-            foreach (var item in Model.CurrentPage.ListImage)
-            {
-                <tr>
-                    <td>@Html.PropertyFor(modelItem => item.Label)</td>
-                    <td>@Html.PropertyFor(modelItem => item.Value)</td>
-                    <td style="width:100px;height:100px;">@Html.PropertyFor(modelItem => item.Image, new { CustomTag = "span" })</td>
+<table style="border:2px solid; width:100%;" @Html.EditAttributes(x => x.CurrentPage.ListImage)>
 
-                </tr>
-            }
+    @if (Model.CurrentPage.ListImage != null)
+    {
+        <tr>
+            <td><b>Label</b></td>
+            <td><b>Value</b></td>
+            <td><b>Image</b></td>
+        </tr>
+        foreach (var item in Model.CurrentPage.ListImage)
+        {
+        <tr>
+            <td>@Html.PropertyFor(modelItem => item.Label)</td>
+            <td>@Html.PropertyFor(modelItem => item.Value)</td>
+            <td style="width:100px;height:100px;">@Html.PropertyFor(modelItem => item.Image, new { CustomTag = "span" })</td>
+        </tr>
         }
-        
-    </table>
+    }
 
+</table>
 </div>

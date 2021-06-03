@@ -29,18 +29,18 @@ namespace MyEpiserverSite.Models.Pages
 
         [CultureSpecific]
         [Display(
-                    Name = "Main body",
-                    Description = "The main body will be shown in the main content area of the page, using the XHTML-editor you can insert for example text, images and tables.",
-                    GroupName = SystemTabNames.Content,
-                    Order = 1)]
+            Name = "Main body",
+            Description = "The main body will be shown in the main content area of the page, using the XHTML-editor you can insert for example text, images and tables.",
+            GroupName = SystemTabNames.Content,
+            Order = 1)]
         public virtual XhtmlString MainBody { get; set; }
 
         [CultureSpecific]
         [Display(
-                   Name = "Description",
-                   Description = "Description",
-                   GroupName = SystemTabNames.Content,
-                   Order = 2)]
+            Name = "Description",
+            Description = "Description",
+            GroupName = SystemTabNames.Content,
+            Order = 2)]
         public virtual XhtmlString MainData { get; set; }
 
         [UIHint(EPiServer.Web.UIHint.Image)]
@@ -48,25 +48,24 @@ namespace MyEpiserverSite.Models.Pages
 
         [CultureSpecific]
         [Display(
-                   Name = "List",
-                   Description = "List",
-                   GroupName = SystemTabNames.Content,
-                   Order = 3)]
+            Name = "List",
+            Description = "List",
+            GroupName = SystemTabNames.Content,
+            Order = 3)]
         
         [EditorDescriptor(EditorDescriptorType = typeof(CollectionEditorDescriptor<Location>))]
         public virtual IList<Location> Locations { get; set; }
 
         [CultureSpecific]
         [Display(
-                   Name = "ListImage",
-                   Description = "ListImage",
-                   GroupName = SystemTabNames.Content,
-                   Order = 3)]
+            Name = "ListImage",
+            Description = "ListImage",
+            GroupName = SystemTabNames.Content,
+            Order = 3)]
 
         [EditorDescriptor(EditorDescriptorType = typeof(CollectionEditorDescriptor<ListImage>))]
         public virtual IList<ListImage> ListImage { get; set; }
 
     }
-
 
 }
