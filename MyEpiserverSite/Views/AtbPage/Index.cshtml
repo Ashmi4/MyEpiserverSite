@@ -42,14 +42,7 @@
 
             }
         }
-    <div class="row">
-    @if (Model.CurrentPage.Locations == null)
-    {
-
-        @Html.PropertyFor(x => x.CurrentPage.Locations)
-    }
-
-    </div>
+    
     
    </table>
 
@@ -75,13 +68,7 @@
                 </tr>
             }
         }
-        <div class="row">
-            @if (Model.CurrentPage.ListImage == null)
-            {
-
-                @Html.PropertyFor(x => x.CurrentPage.ListImage)
-            }
-        </div>
+        
     </table>
 
 </div>
